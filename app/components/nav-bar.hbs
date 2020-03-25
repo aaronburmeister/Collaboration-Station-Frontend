@@ -1,0 +1,16 @@
+<nav>
+    <LinkTo @route="index" class="nav-index">
+        <div id="logo">Character Creation Logo</div>
+    </LinkTo>
+    <div class="links">
+        <LinkTo @route="login" class="nav-index">
+            <div id="login-button">Log In</div>
+        </LinkTo>
+        <p>OR</p>
+        <LinkTo @route="signup" class="nav-index">
+            <div id="signup-button">Sign Up</div>
+        </LinkTo> 
+    </div>
+</nav>
+
+{{yield}}
