@@ -5,4 +5,5 @@ export default class RequestModel extends Model {
     @attr title;
     @attr description;
     @attr status;
+    @attr user;
 }
