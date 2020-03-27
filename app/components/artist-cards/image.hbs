@@ -1,0 +1,11 @@
+{{#if this.isOverlay}}
+<button type="button" class="image overlay" {{on "click" this.toggleSize}}>
+    <img id={{@image.id}} src="{{@image.imageURL}}" alt="character"/>
+</button>
+{{else}}
+<button type="button" class="image" {{on "click" this.toggleSize}}>
+    <img id={{@image.id}} src="{{@image.imageURL}}" alt="character"/>
+</button>                
+{{/if}}
+
+{{yield}}

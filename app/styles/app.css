@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+v2.0 | 20110126
+License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -16,7 +17,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
+    margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -32,14 +33,14 @@ body {
 	line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
     quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
+    content: '';
 	content: none;
 }
 table {
@@ -47,17 +48,18 @@ table {
 	border-spacing: 0;
 }
 /* MEYER RESET END */
-
 * {
     box-sizing: border-box;
-    font-size: 12px;
 }
+
 
 body { 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    font-family: 'Sen', sans-serif;
+    font-size: 16px;
 }
 
 .body {
@@ -79,27 +81,27 @@ body {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 40px;
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 36px;
 }
 
 h3 {
-    font-size: 28px;
+    font-size: 32px;
 }
 
 h4 {
-    font-size: 24px;
+    font-size: 28px;
 }
 
 h5 {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 h6 {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 nav {
@@ -167,15 +169,37 @@ form label {
 }
 
 img {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
     width: 150px;
-  }
+}
   
-  img:hover {
+button:hover {
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-  }
+}
+
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.overlay img {
+    position: absolute;
+    height: -webkit-fill-available;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
 
 footer {
     margin-top: auto;

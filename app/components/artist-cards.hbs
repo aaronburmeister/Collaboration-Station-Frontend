@@ -4,7 +4,7 @@
         <div class="artist-card">
             <h3>{{artist.username}}</h3>
             {{#each artist.images as |image|}}
-                <img id={{image.id}} src="{{image.imageURL}}" alt="character" />
+                <ArtistCards::Image  @image={{image}}/>
             {{/each}}
         </div>
     {{/each}}
