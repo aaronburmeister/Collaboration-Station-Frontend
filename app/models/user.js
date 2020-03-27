@@ -5,4 +5,6 @@ export default class UserModel extends Model {
     @attr password;
     @attr email;
     @attr isArtist;
+    @attr requests;
+    @attr images;
 }
