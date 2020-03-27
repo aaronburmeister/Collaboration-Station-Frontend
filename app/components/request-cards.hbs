@@ -1,0 +1,12 @@
+<div class="request-list">
+    <h2>Requests</h2>
+    {{#each @requests as |request|}}
+    <div class="request-card">
+        <h3>{{request.title}}</h3>
+        <p><h4>Description:</h4> {{request.description}}</p>
+        <h4>Request Status: {{request.status}}</h4>
+    </div>
+    {{/each}}
+</div>
+
+{{yield}}

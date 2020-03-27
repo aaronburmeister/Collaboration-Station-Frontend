@@ -1,0 +1,11 @@
+<div class="artist-list">
+    <h2>Artists</h2>
+    {{#each @artists as |artist|}}
+        <div class="artist-card">
+            <h3>{{artist.username}}</h3>
+            <h4>{{artist.email}}</h4>
+        </div>
+    {{/each}}
+</div>
+
+{{yield}}

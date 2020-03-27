@@ -1,5 +1,7 @@
 <NavBar />
+{{outlet}}
 <div class="body">
-    {{outlet}}
+    <ArtistCards @artists={{model.users}} />
+    <RequestCards @requests={{model.requests}} />
 </div>
 <Footer />
