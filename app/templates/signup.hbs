@@ -1,4 +1,4 @@
-<form id="signup">
+<form id="signup" {{on "submit" this.signup}}>
     <h2>Sign Up</h2>
 
     <label for="signup-username">Username:</label>
@@ -12,7 +12,7 @@
 
     <div id="artist-checkbox">
         <label for="signup-artist">Are you an Artist?</label>
-        <input type="checkbox" name="singup-artist" />
+        <input type="checkbox" name="signup-artist" />
     </div>
 
     <input type="submit" class="submit-input-signup-login" value="Sign Up" />
