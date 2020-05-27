@@ -2,25 +2,21 @@ import Controller from '@ember/controller';
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 
-
-export default class SignupController extends Controller {
+export default class LoginController extends Controller {
     @tracked username = new URLSearchParams(document.location.search).get('username')
     @tracked password = new URLSearchParams(document.location.search).get('password')
-    @tracked email = new URLSearchParams(document.location.search).get('email')
-    @tracked isArtist = new URLSearchParams(document.location.search).get('signup-artist') ? true : false
 
     @action
-    async signup() {
+    async login(e) {
+        e.preventDefault()
         const user = {
             user: {
                 username: this.username,
                 password: this.password,
-                email: this.email,
-                isArtist: this.isArtist
             }
         }
         
-        await fetch("http://localhost:3000/users", {
+        await fetch("http://localhost:3000/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -28,10 +24,14 @@ export default class SignupController extends Controller {
             },
             body: JSON.stringify(user)
         }).then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => {
+            console.log(result)
+            window.localStorage.setItem('token') = result.token
+            window.localStorage.setItem('username') = this.username
+        })
         .catch(console.log)
 
-        console.log("I submitted a signup request!")
-        return false
+        console.log("I potentially logged in!")
+        return false;
     }
 }
