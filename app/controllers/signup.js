@@ -30,8 +30,5 @@ export default class SignupController extends Controller {
         }).then(response => response.json())
         .then(result => console.log(result))
         .catch(console.log)
-
-        console.log("I submitted a signup request!")
-        return false
     }
 }

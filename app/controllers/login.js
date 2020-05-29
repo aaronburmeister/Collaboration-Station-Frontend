@@ -30,8 +30,5 @@ export default class LoginController extends Controller {
             window.localStorage.setItem('username', this.username)
         })
         .catch(console.log)
-
-        console.log("I potentially logged in!")
-        return false;
     }
 }
