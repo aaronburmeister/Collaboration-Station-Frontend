@@ -26,8 +26,8 @@ export default class LoginController extends Controller {
         }).then(response => response.json())
         .then(result => {
             console.log(result)
-            window.localStorage.setItem('token') = result.token
-            window.localStorage.setItem('username') = this.username
+            window.localStorage.setItem('token', result.token)
+            window.localStorage.setItem('username', this.username)
         })
         .catch(console.log)
 
