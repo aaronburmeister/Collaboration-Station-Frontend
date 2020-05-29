@@ -2,20 +2,18 @@
     <h2>Sign Up</h2>
 
     <label for="signup-username">Username:</label>
-    <input type="text" name="username" id="signup-username" placeholder="Username" />
+    <Input @value={{this.username}} placeholder="Username" />
 
     <label for="signup-password">Password:</label>
-    <input type="password" name="password" id="signup-password" placeholder="Password" />
+    <Input @value={{this.password}} type="password" placeholder="Password"/>
 
     <label for="signup-email">Email:</label>
-    <input type="email" name="email" id="signup-email" placeholder="Email" />
+    <Input @value={{this.email}} type="email" placeholder="Email" />
 
     <div id="artist-checkbox">
         <label for="signup-artist">Are you an Artist?</label>
-        <input type="checkbox" name="signup-artist" />
+        <Input @type="checkbox" @checked={{this.isArtist}} />
     </div>
 
     <input type="submit" class="submit-input-signup-login" value="Sign Up" />
 </form>
-
-{{outlet}}

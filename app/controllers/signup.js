@@ -4,10 +4,10 @@ import { tracked } from "@glimmer/tracking";
 
 
 export default class SignupController extends Controller {
-    @tracked username = new URLSearchParams(document.location.search).get('username')
-    @tracked password = new URLSearchParams(document.location.search).get('password')
-    @tracked email = new URLSearchParams(document.location.search).get('email')
-    @tracked isArtist = new URLSearchParams(document.location.search).get('signup-artist') ? true : false
+    @tracked username
+    @tracked password
+    @tracked email
+    @tracked isArtist = false
 
     @action
     async signup() {
