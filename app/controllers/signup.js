@@ -10,25 +10,14 @@ export default class SignupController extends Controller {
     @tracked isArtist = false
 
     @action
-    async signup() {
+    signup() {
         const user = {
-            user: {
-                username: this.username,
-                password: this.password,
-                email: this.email,
-                isArtist: this.isArtist
-            }
+            username: this.username,
+            password: this.password,
+            email: this.email,
+            isArtist: this.isArtist
         }
-        
-        await fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(user)
-        }).then(response => response.json())
-        .then(result => console.log(result))
-        .catch(console.log)
+        this.store.createRecord('user', user).save()
+        this.transitionToRoute('login')
     }
 }

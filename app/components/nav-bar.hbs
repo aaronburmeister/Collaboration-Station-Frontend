@@ -3,6 +3,11 @@
         <div id="logo">Character Creation Logo</div>
     </LinkTo>
     <div class="links">
+        {{#if this.loggedIn}}
+        <button type="button" class="logout-button" {{on "click" this.logout}}>
+            Log out
+        </button>
+        {{else}}
         <LinkTo @route="login" class="nav-index">
             <div id="login-button">Log In</div>
         </LinkTo>
@@ -10,6 +15,7 @@
         <LinkTo @route="signup" class="nav-index">
             <div id="signup-button">Sign Up</div>
         </LinkTo> 
+        {{/if}}
     </div>
 </nav>
 

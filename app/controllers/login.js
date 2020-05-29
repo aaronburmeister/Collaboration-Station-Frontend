@@ -3,8 +3,8 @@ import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 
 export default class LoginController extends Controller {
-    @tracked username = new URLSearchParams(document.location.search).get('username')
-    @tracked password = new URLSearchParams(document.location.search).get('password')
+    @tracked username
+    @tracked password
 
     @action
     async login(e) {
@@ -12,7 +12,7 @@ export default class LoginController extends Controller {
         const user = {
             user: {
                 username: this.username,
-                password: this.password,
+                password: this.password
             }
         }
         
@@ -26,9 +26,15 @@ export default class LoginController extends Controller {
         }).then(response => response.json())
         .then(result => {
             console.log(result)
-            window.localStorage.setItem('token', result.token)
-            window.localStorage.setItem('username', this.username)
+            if (result.token) {
+                window.localStorage.setItem('token', result.token)
+                window.localStorage.setItem('username', this.username)
+            } else {
+                alert(result.message)
+            }
         })
         .catch(console.log)
+
+        if (window.localStorage.token) this.transitionToRoute('index'); this.refreshCurrentRoute()
     }
 }
