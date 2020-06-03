@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
+import navBar from "../components/nav-bar"
 
 export default class LoginController extends Controller {
     @tracked username
@@ -35,6 +36,9 @@ export default class LoginController extends Controller {
         })
         .catch(console.log)
 
-        if (window.localStorage.token) this.transitionToRoute('index'); this.refreshCurrentRoute()
+        if (window.localStorage.token) {
+            navBar.login()
+            this.transitionToRoute('index');
+        }
     }
 }

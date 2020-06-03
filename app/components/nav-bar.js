@@ -3,11 +3,16 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class NavBarComponent extends Component {
-    @tracked loggedIn = window.localStorage.token ? true : false;
+    @tracked loggedIn = window.localStorage.token ? true : false
+
+    @action
+    login() {
+        this.loggedIn = true;
+    }
 
     @action
     logout() {
         delete window.localStorage.token
-        this.transitionToRoute('index')
+        this.loggedIn = false;
     }
 }
