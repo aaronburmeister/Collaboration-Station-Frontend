@@ -3,7 +3,7 @@
         <div id="logo">Character Creation Logo</div>
     </LinkTo>
     <div class="links">
-        {{#if this.loggedIn}}
+        {{#if this.authManager.isAuthenticated}}
         <button type="button" class="logout-button" {{on "click" this.logout}}>
             Log out
         </button>
