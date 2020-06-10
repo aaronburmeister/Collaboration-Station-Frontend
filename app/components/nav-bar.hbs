@@ -4,6 +4,7 @@
     </LinkTo>
     <div class="links">
         {{#if this.authManager.isAuthenticated}}
+        <div>Welcome, {{this.username}}</div>
         <button type="button" class="logout-button" {{on "click" this.logout}}>
             Log out
         </button>
