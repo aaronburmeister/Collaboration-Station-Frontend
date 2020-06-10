@@ -5,6 +5,7 @@ import { bool } from '@ember/object/computed'
 export default class AuthManagerService extends Service {
 
     @tracked token = window.localStorage.token ? window.localStorage.token : null;
+    @bool('token') isAuthenticated
 
     authenticate(username, password) {
         return fetch('http://localhost:3000/login',{
@@ -12,7 +13,10 @@ export default class AuthManagerService extends Service {
             headers: {"content-type": "application/json"},
             body: JSON.stringify({user: {username, password}})
         }).then(response => response.json())
-        .then( result => window.localStorage.token = this.token = result.token)
+        .then( result => {
+            window.localStorage.username = username
+            window.localStorage.token = this.token = result.token
+        })
     }
     
     invalidate() {
@@ -20,5 +24,4 @@ export default class AuthManagerService extends Service {
         this.token = null;
     }
     
-    @bool('token') isAuthenticated
 }
