@@ -21,6 +21,7 @@ export default class AuthManagerService extends Service {
     
     invalidate() {
         delete window.localStorage.token;
+        delete window.localStorage.username;
         this.token = null;
     }
     

@@ -4,10 +4,14 @@
     </LinkTo>
     <div class="links">
         {{#if this.authManager.isAuthenticated}}
-        <div>Welcome, {{this.username}}</div>
-        <button type="button" class="logout-button" {{on "click" this.logout}}>
-            Log out
-        </button>
+        <div>{{this.username}}
+            <ul>
+                <li>My Account</li>
+                <li class="logout-button">
+                    <button type="button" {{on "click" this.logout}}>Log out</button>
+                </li>
+            </ul>
+        </div>
         {{else}}
         <LinkTo @route="login" class="nav-index">
             <div id="login-button">Log In</div>
